@@ -14,21 +14,7 @@ struct FrameworkDetailView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                
-                Button {
-                    isShowingDetailView = false
-                } label: {
-                    Image(systemName: "xmark")
-                        .foregroundStyle(Color(.label))
-                        .imageScale(.large)
-                        .frame(width: 44, height:  44)
-                    
-                }
-            }
-            .padding(.horizontal)
-
+            XDismissButton(isShowingDetailView: $isShowingDetailView)
             
             Spacer()
             
@@ -43,8 +29,16 @@ struct FrameworkDetailView: View {
             Button {
                 isShowingSafariView = true
             } label: {
-                AFButton(title: "Learn More")
+//                AFButton(title: "Learn More")
+                Label("Learn More", systemImage: "book.fill")
+    
             }
+            .buttonStyle(.bordered)
+            .controlSize(.large)
+//            .foregroundStyle(.yellow)
+//            .buttonBorderShape(.roundedRectangle(radius: 20))
+            .tint(.red)
+            
         }
 //        .fullScreenCover(isPresented: $isShowingSafariView) { // if you wanna watch it fullscreen
         .sheet(isPresented: $isShowingSafariView) {
