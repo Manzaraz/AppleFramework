@@ -7,14 +7,15 @@
 
 import Foundation
 
-struct Framework {
+struct Framework: Hashable, Identifiable {
+    var id = UUID()    
     let name: String
     let imageName: String
     let urlString: String
     let description: String
 }
 
-struct MockData {
+struct MockData  {
     
     static let sampleFramework = Framework(name: "ARKit",
                                            imageName: "arkit",
